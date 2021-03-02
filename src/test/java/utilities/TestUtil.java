@@ -17,20 +17,30 @@ import base.BaseTest;
 public class TestUtil extends BaseTest {
 	
 	
-	// method explicitwait for one webelement
-	public static WebElement ExplicitWaitOne(WebElement account) {
+	// method explicitwait clickable for one webelement
+	public static WebElement ExplicitClickableWaitOne(WebElement account) {
 		WebDriverWait wait = new WebDriverWait(driver, 20);
 		WebElement element = wait.until(ExpectedConditions.elementToBeClickable(account));
 		return element;
 	}
+	// method explicitwait visibility for one webelement
+	public static WebElement ExplicitInvisibilityWaitOne(WebElement account) {
+		WebDriverWait wait = new WebDriverWait(driver, 20);
+		WebElement element = wait.until(ExpectedConditions.visibilityOf(account));
+		return element;
+	}
 	
-	// method explicitwait for more than one webelement
-	public static List<WebElement> ExplicitWaitList(List<WebElement> ListwebElement) {
+	// method explicitwait clickable for more than one webelement
+	public static List<WebElement> ExplicitClickableWaitList(List<WebElement> ListwebElement) {
 		WebDriverWait wait = new WebDriverWait(driver, 20);
 		List<WebElement> listelement = wait.until(ExpectedConditions.visibilityOfAllElements(ListwebElement));
 		return listelement;
 	}
 
+	
+	public static boolean CheckWordMatchText(String text,String word) {
+		return text.contains(word);
+	}
 
 
 }
